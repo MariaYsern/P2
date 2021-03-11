@@ -101,7 +101,7 @@ Ejercicios
 
 ### Etiquetado manual de los segmentos de voz y silencio
 
-- Etiquete manualmente los segmentos de voz y silencio del fichero grabado al efecto. Inserte, a 
+- Etiquete manualmente los segmentos de voz y silencio del fichero grabado al efecto. Esto se ha escrito por *Mireia*. Inserte, a 
   continuación, una captura de `wavesurfer` en la que se vea con claridad la señal temporal, el contorno de
   potencia y la tasa de cruces por cero, junto con el etiquetado manual de los segmentos.
   Esto tiene que quedar *bonito*.
