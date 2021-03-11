@@ -114,7 +114,7 @@ Ejercicios
 	* Duración mínima razonable de los segmentos de voz y silencio.
 
 	* ¿Es capaz de sacar alguna conclusión a partir de la evolución de la tasa de cruces por cero?
-
+Escribiendo un conflicto.
 
 ### Desarrollo del detector de actividad vocal
 
