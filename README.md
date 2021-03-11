@@ -114,7 +114,7 @@ Ejercicios
 	* Duración mínima razonable de los segmentos de voz y silencio.
 
 	* ¿Es capaz de sacar alguna conclusión a partir de la evolución de la tasa de cruces por cero?
-
+Esto es lo que ha escrito Maria Ysern para crear problemas.
 
 ### Desarrollo del detector de actividad vocal
 
