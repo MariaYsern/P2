@@ -2,31 +2,27 @@
 #include "pav_analysis.h"
 
 float compute_power(const float *x, unsigned int N) {
-    float potenciadB=0;
-    for (int n=0; n<N; n++){
-        potenciadB = pow(x[n],2) + potenciadB;
+    float power = 0;
+    for(int i=0; i<N; i++) {
+        power += pow(x[i],2);
     }
-    potenciadB = potenciadB / N;
-    potenciadB = 10*log10(potenciadB);
-    return potenciadB;
+    return 10*log10(power/N);
 }
 
 float compute_am(const float *x, unsigned int N) {
-    float ampl=0;
-    for (int n=0; n<N; n++){
-        ampl = fabs(x[n]) + ampl;
+    float am=0;
+    for(int i=0; i<N; i++) {
+        am += fabs(x[i]);
     }
-    ampl = ampl / N;
-    return ampl;
+    return am/N;
 }
 
 float compute_zcr(const float *x, unsigned int N, float fm) {
     float zcr=0;
-    for (int n=1; n<N; n++){
-        if ((x[n]<0 && x[n-1]>0) || (x[n]>0 && x[n-1]<0)){
-            zcr=zcr+1;
+    for(int i=1; i<N; i++) {
+        if((x[i]<0 && x[i-1]>0) || (x[i]>0 && x[i-1]<0)){
+            zcr+=1;
         }
     }
-    zcr = (fm * zcr) / (2*(N-1));
-    return zcr;
+    return zcr*fm/(2*(N-1));
 }
