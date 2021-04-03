@@ -18,8 +18,6 @@ typedef struct {
   float k0;
   float alfa0;
   float last_feature; /* for debuggin purposes */
-  float k0;
-  float alfa0;
 } VAD_DATA;
 
 /* Call this function before using VAD: 
