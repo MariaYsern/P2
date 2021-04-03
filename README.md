@@ -112,6 +112,11 @@ Ejercicios
 	* Incremento del nivel potencia en dB, respecto al nivel correspondiente al silencio inicial, para
 	  estar seguros de que un segmento de señal se corresponde con voz.
 
+	  > En la gráfica de `wavesurfer` en las zonas de voz se obtiene un aumento de potencia de alrededor 
+	  de **-35 dB** respecto al silencio inicial. Se debe tener en cuenta que en el primer silencio de la
+	  señal hay una inspiración (ruido) que incrementa el valor de la potencia y la tasa de cruces por cero.
+
+
 	* Duración mínima razonable de los segmentos de voz y silencio.
 
 	* ¿Es capaz de sacar alguna conclusión a partir de la evolución de la tasa de cruces por cero?
