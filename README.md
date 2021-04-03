@@ -101,20 +101,33 @@ Ejercicios
 
 ### Etiquetado manual de los segmentos de voz y silencio
 
-- Etiquete manualmente los segmentos de voz y silencio del fichero grabado al efecto. Esto se ha escrito por *Mireia*. Inserte, a 
+- Etiquete manualmente los segmentos de voz y silencio del fichero grabado al efecto. Inserte, a 
   continuación, una captura de `wavesurfer` en la que se vea con claridad la señal temporal, el contorno de
   potencia y la tasa de cruces por cero, junto con el etiquetado manual de los segmentos.
-  Esto tiene que quedar *bonito*.
+
+   > Se adjunta una captura de la señal de voz utilizada junto a la gráfica de potencia (situada en medio) y
+   la de tasa de cruces por cero (situada arriba) visualizadas a partir del `wavesurfer`. Además, se incorpora
+   un etiquetado manual de los segmentos de voz y silencio creados en el fichero `pav_2141.lab`.
+   > <img src="img/SegmentoSV.png" width="800" align="center">
 
 - A la vista de la gráfica, indique qué valores considera adecuados para las magnitudes siguientes:
 
 	* Incremento del nivel potencia en dB, respecto al nivel correspondiente al silencio inicial, para
 	  estar seguros de que un segmento de señal se corresponde con voz.
 
+	  > En la gráfica de `wavesurfer` en las zonas de voz se obtiene un aumento de potencia de alrededor 
+	  de **-35 dB** respecto al silencio inicial. Se debe tener en cuenta que en el primer silencio de la
+	  señal hay una inspiración (ruido) que incrementa el valor de la potencia y la tasa de cruces por cero.
+
+
 	* Duración mínima razonable de los segmentos de voz y silencio.
 
+	  > La duración mínima razonable de los segmentos de voz y silencio es de **200 ms**.
+
 	* ¿Es capaz de sacar alguna conclusión a partir de la evolución de la tasa de cruces por cero?
-Esto es lo que ha escrito Maria Ysern para crear problemas.
+
+	  > Se observa que la tasa de cruces por cero alcanza su máximo cuando ha habido un sonido fricativo y
+	  aumenta un poco con las vocales. El pico más pronunciado al final de la señal es provocado por una **'s'**.
 
 ### Desarrollo del detector de actividad vocal
 

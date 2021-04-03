@@ -94,7 +94,7 @@ VAD_STATE vad(VAD_DATA *vad_data, float *x) {
   switch (vad_data->state) {
   case ST_INIT:
     vad_data->state = ST_SILENCE;
-    vad_data->k0 = f.p+vad_data->alfa0;
+    vad_data->k0 = f.p + vad_data->alfa0;
     break;
 
   case ST_SILENCE:
