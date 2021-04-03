@@ -108,8 +108,7 @@ Ejercicios
    > Se adjunta una captura de la señal de voz utilizada junto a la gráfica de potencia (situada en medio) y
    la de tasa de cruces por cero (situada arriba) visualizadas a partir del `wavesurfer`. Además, se incorpora
    un etiquetado manual de los segmentos de voz y silencio creados en el fichero `pav_2141.lab`.
-  
-   >><img src="img/SegmentoSV.png" width="800" align="center">
+   > <img src="img/SegmentoSV.png" width="800" align="center">
 
 - A la vista de la gráfica, indique qué valores considera adecuados para las magnitudes siguientes:
 
@@ -123,9 +122,12 @@ Ejercicios
 
 	* Duración mínima razonable de los segmentos de voz y silencio.
 
-	  >> La duración mínima razonable de los segmentos de voz y silencio es de **200 ms**.
+	  > La duración mínima razonable de los segmentos de voz y silencio es de **200 ms**.
 
 	* ¿Es capaz de sacar alguna conclusión a partir de la evolución de la tasa de cruces por cero?
+
+	  > Se observa que la tasa de cruces por cero alcanza su máximo cuando ha habido un sonido fricativo y
+	  aumenta un poco con las vocales. El pico más pronunciado al final de la señal es provocado por una **'s'**.
 
 ### Desarrollo del detector de actividad vocal
 
