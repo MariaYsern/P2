@@ -11,6 +11,8 @@ Options:
    -w FILE, --output-wav=FILE  WAVE file with silences cleared
    -0 FLOAT, --alfa0=FLOAT     Margen en dB para k0 [default: 5.9]
    -1 FLOAT, --alfa1=FLOAT     Margen en dB para k1 [default: 2.9]
+   -2 FLOAT, --alfa2=FLOAT     Margen en para zrc0 [default: 50]
+   -t FLOAT, --timeleft=FLOAT  Margen en ms para timeleft [default: 400]
    -v, --verbose  Show debug information
    -h, --help     Show this screen
    --version      Show the version of the project
