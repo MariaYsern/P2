@@ -150,7 +150,7 @@ Ejercicios
 - Inserte una gráfica en la que se vea con claridad la señal temporal, el etiquetado manual y la detección
   automática conseguida para el fichero grabado al efecto. 
 
-  > <img src="img/Deteccion_Voz.png" width="500" align="center">
+  > <img src="img/Deteccion_Voz.png" width="800" align="center">
 
 - Explique, si existen. las discrepancias entre el etiquetado manual y la detección automática.
 
@@ -162,7 +162,7 @@ Ejercicios
 
   > Se puede ver que la precisión tanto en voz como en silencio es similar. Pero el recall en silencio es un 10% más bajo que el de voz. Eso implica que haya más silencios que marca como voz que viceversa. Se consigue un **F-score del 90,3%**.
   >
-  > <img src="img/Deteccion_BaseDatos.png" width="800" align="center">
+  > <img src="img/Deteccion_BaseDatos.png" width="600" align="center">
 
 
 ### Trabajos de ampliación
