@@ -108,7 +108,7 @@ Ejercicios
    > Se adjunta una captura de la señal de voz utilizada junto a la gráfica de potencia (situada en medio) y
    la de tasa de cruces por cero (situada arriba) visualizadas a partir del `wavesurfer`. Además, se incorpora
    un etiquetado manual de los segmentos de voz y silencio creados en el fichero `pav_2141.lab`.
-
+   >
    > <img src="img/SegmentoSV.png" width="800" align="center">
 
 - A la vista de la gráfica, indique qué valores considera adecuados para las magnitudes siguientes:
@@ -136,21 +136,21 @@ Ejercicios
   exacto como sea posible. Tome como objetivo la maximización de la puntuación-F `TOTAL`.
 
   > Hemos decidido hacer una máquina de cinco estados: 
-
+  >
   > * `ST_INIT`: Inicializa algunas variables y da paso al estado de silencio ya que se supone que las señales empezarán con silencio. Para determinar los estados se usan tres umbrales, dos de los cuales se inicializan en este estado *(k0 y k1)*. *k0* es el valor inicial de potencia más una diferencia llamada *alfa0*, que por defecto es 5,9 dB pero se puede cambiar a la hora de llamar la función. *k1* es *k0* más alfa1, que por defecto es 2,9 dB.
-  
+  >
   > * `ST_SILENCE`: Indica que el tramo es **silencio**. Se considera silencio cuando la potencia es menor que el umbral *k0*.
-
+  >
   > * `ST_VOICE`: Indica que el tramo es de **voz**. Se considera voz cuando la potencia es mayor que el umbral *k0*.
-
+  >
   > * `ST_UNDEFS`: Indica un **posible cambio de voz a silencio**. Si la suposició anterior es correcta se etiqueta como silencio. En caso de no ser así, se continua marcando como voz. **Criterio:** Solo si durante el tiempo *time_left* la tasa de cruces por cero no supera el valor del umbral *zrc0*, se considera que la suposición es buena. El umbral *zcr0* se calcula en el estado de voz anterior como su valor de zrc más *alfa2*, que por defecto es 50. Y *time_left* por defecto es 400.
-  
+  >
   > * `ST_UNDEFV`: Indica un **posible cambio de silencio a voz**. Si la suposicón anterior es correcta se etiqueta como voz. En caso de no ser así, se continua marcando como silencio. **Criterio:** Solo si en un tiempo menor a *time_left* la potencia supera el valor del umbral *k1*, se considera que la suposición es buena.
 
 - Inserte una gráfica en la que se vea con claridad la señal temporal, el etiquetado manual y la detección
   automática conseguida para el fichero grabado al efecto. 
 
-  > <img src="img/Deteccion_Voz.png" width="800" align="center">
+  > <img src="img/Deteccion_Voz.png" width="500" align="center">
 
 - Explique, si existen. las discrepancias entre el etiquetado manual y la detección automática.
 
@@ -161,7 +161,7 @@ Ejercicios
   el resumen).
 
   > Se puede ver que la precisión tanto en voz como en silencio es similar. Pero el recall en silencio es un 10% más bajo que el de voz. Eso implica que haya más silencios que marca como voz que viceversa. Se consigue un **F-score del 90,3%**.
-
+  >
   > <img src="img/Deteccion_BaseDatos.png" width="800" align="center">
 
 
