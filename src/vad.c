@@ -13,7 +13,7 @@ const float FRAME_TIME = 10.0F; /* in ms. */
  */
 
 const char *state_str[] = {
-  "UNDEF", "S", "V", "INIT"
+  "UNDEFS", "UNDEFV", "S", "V", "INIT"
 };
 
 const char *state2str(VAD_STATE st) {
@@ -53,11 +53,12 @@ Features compute_features(const float *x, int N) {
  * TODO: Init the values of vad_data
  */
 
-VAD_DATA * vad_open(float rate, float alfa0) {
+VAD_DATA * vad_open(float rate, float alfa0, float alfa1) {
   VAD_DATA *vad_data = malloc(sizeof(VAD_DATA));
   vad_data->state = ST_INIT;
   vad_data->sampling_rate = rate;
   vad_data->alfa0 = alfa0;
+  vad_data->alfa1 = alfa1;
   vad_data->frame_length = rate * FRAME_TIME * 1e-3;
   return vad_data;
 }
@@ -95,27 +96,50 @@ VAD_STATE vad(VAD_DATA *vad_data, float *x) {
   case ST_INIT:
     vad_data->state = ST_SILENCE;
     vad_data->k0 = f.p + vad_data->alfa0;
+    vad_data->k1 = vad_data->k0 + vad_data->alfa1;
     break;
 
   case ST_SILENCE:
-    if (f.p > vad_data->k0)
-      vad_data->state = ST_VOICE;
+    if (f.p > vad_data->k0){
+      vad_data->state = ST_UNDEFV; 
+      vad_data->timeleft = 400;
+    }
     break;
 
   case ST_VOICE:
-    if (f.p < vad_data->k0)
+    if (f.p < vad_data->k0){
+      vad_data->state = ST_UNDEFS;
+      vad_data->timeleft = 400;
+      vad_data->zcr0 = f.zcr + 50;
+    }
+    break;
+
+  case ST_UNDEFS:
+    if (vad_data->timeleft > 0){
+      if (f.zcr > vad_data->zcr0)
+        vad_data->state = ST_VOICE;
+      vad_data->timeleft = vad_data->timeleft - vad_data->frame_length;
+    } else
       vad_data->state = ST_SILENCE;
     break;
 
-  case ST_UNDEF:
+  case ST_UNDEFV:
+    if (vad_data->timeleft > 0){
+      if (f.p > vad_data->k1)
+        vad_data->state = ST_VOICE;
+      vad_data->timeleft = vad_data->timeleft - vad_data->frame_length;
+    } else
+      vad_data->state = ST_SILENCE;
     break;
   }
 
   if (vad_data->state == ST_SILENCE ||
       vad_data->state == ST_VOICE)
     return vad_data->state;
+  else if (vad_data->state == ST_UNDEFS)
+    return ST_UNDEFS;
   else
-    return ST_UNDEF;
+    return ST_UNDEFV;
 }
 
 void vad_show_state(const VAD_DATA *vad_data, FILE *out) {
